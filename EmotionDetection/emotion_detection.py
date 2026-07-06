@@ -15,10 +15,10 @@ def emotion_detector(text_to_analyze):
             "joy": None,
             "sadness": None,
             "dominant_emotion": None
-        }, 400
+        }
         
     formatted_response = json.loads(response.text)
     emotions = formatted_response["emotionPredictions"][0]["emotion"]
     dominant_emotion = max(emotions, key=emotions.get)
     emotions["dominant_emotion"] = dominant_emotion
-    return emotions, 200
+    return emotions
